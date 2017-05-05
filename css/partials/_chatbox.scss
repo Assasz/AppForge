@@ -1,0 +1,166 @@
+.chatbox
+{
+  height: 400px;
+  @include position(fixed, null 25px 25px null);
+  background-color: $white;
+  border-radius: 8px;
+  -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+  transition: all .3s ease;
+  bottom: -400px;
+  padding: 0;
+  z-index: 999;
+
+  .chatbox-wrapper
+  {
+    overflow-y: scroll;
+    height: 290px;
+    width: 100%;
+
+    &::-webkit-scrollbar
+    {
+      width: 8px;
+    }
+
+    &::-webkit-scrollbar-track
+    {
+      -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0);
+      -webkit-border-radius: 10px; border-radius: 10px;
+    }
+
+    &::-webkit-scrollbar-thumb
+    {
+      -webkit-border-radius: 10px;
+      border-radius: 10px;
+      background-color: $blue;
+     }
+
+    &::-webkit-scrollbar-thumb:window-inactive
+    {
+      background: rgba(0, 0, 0,0.5);
+    }
+
+    .chatbox-container
+    {
+      display: table;
+      width: 100%;
+
+      .chatbox-list
+      {
+        height: 290px;
+        width: 100%;
+        margin: 0;
+        padding: 0 20px;
+        position: relative;
+        list-style: none;
+        transition: all .3s ease;
+        display: table-cell;
+        vertical-align: bottom;
+
+        li
+        {
+          width: 100%;
+          padding: 15px;
+          border-radius: 6px;
+          color: $white;
+          display: block;
+          word-wrap: break-word;
+          margin-top: 20px;
+          min-height: 50px;
+        }
+
+        .received
+        {
+          @extend li;
+          background-color: $blue;
+          position: relative;
+          width: 80%;
+
+          &::before
+          {
+            content: '';
+            width: 50px;
+            height: 50px;
+            background-image: url('images/guide.jpg');
+            background-position: center;
+            background-size: cover;
+            margin: 0 auto 0 0;
+            border-radius: 50%;
+            display: block;
+            @include position(absolute, 0 -60px null null);
+          }
+        }
+
+        .sent
+        {
+          @extend li;
+          background-color: $purple;
+        }
+      }
+    }
+  }
+
+  .form-control
+  {
+    height: 60px;
+    width: 100%;
+    border-bottom: none;
+    resize: none;
+    padding: 20px 20px 10px 20px;
+    margin-bottom: 0;
+    box-sizing: border-box;
+  }
+
+  .chatbox-header
+  {
+    width: 100%;
+    height: 45px;
+    text-align: center;
+    background-color: $dark;
+    color: $blue;
+    border-top-right-radius: 8px;
+    border-top-left-radius: 8px;
+
+    h3
+    {
+      padding: 0;
+      margin: 0;
+      line-height: 45px;
+      font-weight: bold;
+      font-size: 17px;
+    }
+
+    .fa-close
+    {
+      @include position(absolute, 0 15px null null);
+      cursor: pointer;
+      font-size: 18px;
+      line-height: 45px;
+      transition: all .3s ease;
+
+      &:hover
+      {
+        transform: rotate(180deg);
+      }
+    }
+  }
+}
+
+.toogle-chatbox
+{
+  @include position(fixed, null 25px 25px null);
+  transition: all .3s ease;
+  opacity: 1;
+  z-index: 999;
+
+  span
+  {
+    text-align: center;
+    cursor: pointer;
+    margin: 0;
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+  }
+}

@@ -1,0 +1,50 @@
+.navbar-inverse
+{
+  background: transparent;
+  border:none;
+  transition: all .3s ease;
+
+  button
+  {
+    right: 30px;
+    margin-right: 0;
+  }
+
+  a, .navbar-brand
+  {
+    transition: all .3s ease;
+    color: $blue !important;
+    text-shadow: none !important;
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+
+  li
+  {
+    transition: all .3s ease;
+
+    &:hover, &:hover a
+    {
+      background-color: $blue;
+      color: $dark !important;
+    }
+
+  }
+
+  .active a
+  {
+    background: none !important;
+    -webkit-box-shadow: inset 0px 8px 0px 0px $blue !important;
+    -moz-box-shadow: inset 0px 8px 0px 0px $blue !important;
+    box-shadow: inset 0px 8px 0px 0px $blue !important;
+  }
+
+  .navbar-toggle
+  {
+    border: none !important;
+    font-size: 30px;
+    color: $blue;
+    right: 0;
+    margin: 0;
+  }
+}

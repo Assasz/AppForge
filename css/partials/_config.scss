@@ -1,0 +1,25 @@
+$dark: #272B30;
+$white: #e5e5e5;
+$blue: #00aeee;
+$purple: #5938a0;
+$border: #080808;
+$green: #00C851;
+$red: #CC0000;
+
+@mixin background($image)
+{
+  background:
+  {
+
+    image: url($image);
+    position: center;
+    repeat: no-repeat;
+    size: cover;
+    attachment: fixed;
+  }
+}
+
+body
+{
+  font-family: 'Varela Round', sans-serif;
+}

@@ -1,0 +1,92 @@
+.carousel
+{
+  margin: 60px 0;
+
+  .carousel-indicators
+  {
+    bottom: 0;
+    padding-bottom: 20px;
+    margin-bottom: 0;
+
+    li
+    {
+      border-color: $dark;
+      background-color: $dark;
+    }
+
+    .active
+    {
+      border-color: $blue;
+      background-color: $blue;
+    }
+  }
+
+  .carousel-control
+  {
+    transition: all .3s ease;
+    background: $dark !important;
+    opacity: 1;
+    width: 50px;
+
+    span
+    {
+      color: $blue;
+      text-shadow: none;
+      transition: all .3s ease;
+      box-sizing: content-box;
+      margin: -15px !important;
+    }
+
+    &:hover
+    {
+      background: $blue !important;
+      opacity: 1;
+    }
+
+    &:hover > span
+    {
+      color: $dark;
+    }
+  }
+
+  .carousel-multi
+  {
+    > .item
+    {
+      transition: 500ms ease-in-out left;
+    }
+
+    .active
+    {
+      &.left
+      {
+        left:-33%;
+      }
+      &.right
+      {
+        left:33%;
+      }
+    }
+
+    .next
+    {
+      left: 33%;
+    }
+
+    .prev
+    {
+      left: -33%;
+    }
+
+    @media all and (transform-3d), (-webkit-transform-3d)
+    {
+      > .item
+      {
+        transition: 500ms ease-in-out left;
+        transition: 500ms ease-in-out all;
+        backface-visibility: visible;
+        transform: none!important;
+      }
+    }
+  }
+}

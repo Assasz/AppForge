@@ -1,0 +1,107 @@
+body
+{
+  background-color: $white;
+}
+
+#preloader
+{
+  @include position(fixed, 0 0 null null);
+  background-color: $dark;//#15191F;
+  width: 100%;
+  height: 100%;
+  z-index:1500;
+  transition: all .5s ease;
+
+  img
+  {
+    margin-top:250px;
+  }
+
+  span
+  {
+    color: $blue;
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+    display: block;
+    margin: 20px auto 0 auto;
+  }
+}
+
+output
+{
+  height: 60px;
+  width: 100%;
+  position: relative;
+}
+
+.progress-bar
+{
+  width: 0%;
+  height: 10px;
+  background-color: $blue;
+  border-radius: 2px;
+  background-image: none;
+  transition: all .8s linear;
+}
+
+.icon
+{
+  background-color: $dark;
+  border-radius: 50%;
+  color: $blue;
+  margin: 0 10px;
+  transition: all .3s ease;
+
+  &:hover
+  {
+    transform: rotate(360deg);
+  }
+}
+
+.icon-big
+{
+  @extend .icon;
+  font-size: 25px !important;
+  width: 60px !important;
+  height: 60px;
+  padding-top: 18px;
+}
+
+.icon-small
+{
+  @extend .icon;
+  font-size: 20px !important;
+  padding: 15px 16px;
+  width: 50px !important;
+  height: 50px;
+}
+
+.padding-top
+{
+  padding-top: 40px;
+}
+
+.message-box
+{
+  margin-top: 20px;
+  display: none;
+}
+
+.thumbnail
+{
+  background: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.page-header
+{
+  border: none !important;
+  font-weight: bold;
+}
+
+.narrow
+{
+  padding: 0 25%;
+}

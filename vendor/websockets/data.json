@@ -1,0 +1,107 @@
+[
+  {
+    "pattern":
+    [
+      "services", "offert", "doing"
+    ],
+    "reply":"We deliver proffesional web and mobile solutions and UI/UX design for our clients from every branch of industry"
+  },
+  {
+    "pattern":
+    [
+      "number", "phone", "call"
+    ],
+    "reply":"Our phone number is +48 518 300 079, feel free to call us"
+  },
+  {
+    "pattern":
+    [
+      "email", "message", "send", "contact"
+    ],
+    "reply":"Send us a message via contact form in Contact page or directly on e-mail adress: company@gmail.com"
+  },
+  {
+    "pattern":
+    [
+      "address", "place", "city", "location"
+    ],
+    "reply":"Our company is located in Gdansk, Poland. You can check accurate address on Google Map in Contact page"
+  },
+  {
+    "pattern":
+    [
+      "pay", "money", "cost", "price"
+    ],
+    "reply":"The cost of a service varies depending on what you need. Our company does not have set packages, but rather develop solutions around what you want and need"
+  },
+  {
+    "pattern":
+    [
+      "legacy", "modernization", "upgrade", "redesign"
+    ],
+    "reply":"Legacy websites modernization or upgrade is no problem for us, also"
+  },
+  {
+    "pattern":
+    [
+      "long", "time", "building"
+    ],
+    "reply":"Once we have all the content, it takes aroud 3-6 weeks for smaller websites, and up to few months for bigger applications or systems"
+  },
+  {
+    "pattern":
+    [
+      "technology", "technologies", "language", "tools"
+    ],
+    "reply":"We use mostly JavaScript and PHP based frameworks like Node.js or Laravel for developing web applications. You can check technologies that we use on Team page"
+  },
+  {
+    "pattern":
+    [
+      "projects", "portfolio", "experience"
+    ],
+    "reply":"Our company successfully accomplished around 200 project over 6 years of experience. We have worked with clients from around the world, like Samsung or Toyota. You can check our projects on Portfolio page"
+  },
+  {
+    "pattern":
+    [
+      "host", "hosting", "server"
+    ],
+    "reply":"Currently we don't offer any hosting service. We build our websites mostly on Heroku, or use CMS like WordPress"
+  },
+  {
+    "pattern":
+    [
+      "cms", "drupal", "wordpress", "content managment"
+    ],
+    "reply":"We use the most popular CMS like WordPress and Drupal, but we can also build new one for you"
+  },
+  {
+    "pattern":
+    [
+      "ecommerce", "shop", "storage", "magento"
+    ],
+    "reply":"Need your own shop online? With our skills and powerful Magento it's not a problem"
+  },
+  {
+    "pattern":
+    [
+      "design", "responsive", "bootstrap", "layout", "template"
+    ],
+    "reply":"As you need, we can made for you a full user-friendly, responsive website using Bootstrap framework, or design simple, eye-catching template"
+  },
+  {
+    "pattern":
+    [
+      "who you are", "team", "company", "about you"
+    ],
+    "reply":"We are small team of individuals, skilled developers with over 6 year of experience. Meet us closer on Team page"
+  },
+  {
+    "pattern":
+    [
+      "database", "mysql", "mongodb"
+    ],
+    "reply":"We are using MySQL or MondoDB database depending on client's needs and technology, which we are using in specific project"
+  }
+]
