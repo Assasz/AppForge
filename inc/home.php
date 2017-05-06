@@ -2,7 +2,7 @@
   <div class="container-fluid container-cover">
       <div class="col-md-12 text-center">
         <h1>Hello world!</h1>
-        <p>We are Company and we build awesome things on web <span></span></p>
+        <p>We are AppForge and we build awesome web and mobile apps</p>
         <br>
         <a href="portfolio" class="btn btn-lg btn-home">Check that</a><br>
         <img src="css/images/scroll.png" alt="Scroll down">
@@ -33,7 +33,7 @@
          <div class="caption">
            <div class="caption text-center">
              <h3>Web App Development</h3>
-             <p>We develops secure and scalable product of any complexity, including Minimum Viable Product (MVP) development for start-ups, custom APIs for mobile apps and web applications that range from simple CMS-powered websites to enterprise level administrative systems hosted on server clusters.<p>
+             <p>We develop secure and scalable product of any complexity, including Minimum Viable Product (MVP) development for start-ups, custom APIs for mobile apps and web applications that range from simple CMS-powered websites to enterprise level administrative systems hosted on server clusters.<p>
            </div>
          </div>
        </div>
@@ -43,7 +43,7 @@
          <img data-original="css/images/service3.png" alt="E-commerce" class="img-responsive lazy">
          <div class="caption text-center">
            <h3>Mobile App Development</h3>
-           <p>As your trusted e-commerce development partner, we build, launch and grow profitable online stores provides the ultimate, fully managed eCommerce solutions delivering top-quality solutions and services.</p>
+           <p>We create native applications for Apple iOS and Google Android. Starting with strategy, perfecting design, and implementing it all during development, we provide the complete package to bring any project to market. We’ve made apps for everything from communication and social collaboration, to VPN products, to secure enterprise solutions.</p>
          </div>
        </div>
      </div>

@@ -29,7 +29,7 @@ class Router
 
   public static function getTitle()
   {
-    return "Company - ".ucfirst(self::$site);
+    return "AppForge - ".ucfirst(self::$site);
   }
 }
 ?>

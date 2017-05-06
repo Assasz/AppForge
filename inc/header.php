@@ -12,7 +12,7 @@ use App\Router;
     <meta name="description" content="Web development company">
     <title><?= Router::getTitle(); ?></title>
 
-    <link rel="shortcut icon" href="css/images/logo.png">
+    <link rel="shortcut icon" href="css/images/logo.jpg">
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/bootstrap-theme.min.css" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet">
@@ -28,7 +28,7 @@ use App\Router;
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-ex-collapse">
           <span class="fa fa-fw fa-bars" aria-label="Toggle menu"></span>
         </button>
-        <span class="navbar-brand">Company</span>
+        <span class="navbar-brand">AppForge</span>
       </div>
       <div class="collapse navbar-collapse" id="navbar-ex-collapse">
         <ul class="nav navbar-nav navbar-right">

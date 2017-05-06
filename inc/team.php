@@ -21,7 +21,7 @@
         <h3>Paweł Antosiak<br>
         <small>Back-end Developer</small></h3>
         <div class="caption-team">
-            <p>Certified Zend PHP programmer and Magento developer with vast knowledge and expierience with web development including both server-side and client-side technologies. Expertise with Laravel and Yii Frameworks.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
         </div>
         <div class="row">
           <a href="#"><span class="icon-small fa fa-fw fa-facebook" aria-label="Facebook"></span></a>
