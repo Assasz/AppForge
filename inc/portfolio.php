@@ -10,7 +10,7 @@
 <section class="app-section">
   <div class="container">
     <div class="col-md-6 col-sm-6">
-      <img src="css/images/app1.gif" alt="" class="responsive-img center-block">
+      <img src="css/images/portfolio/app1.gif" alt="" class="responsive-img center-block">
     </div>
     <div class="col-md-6 col-sm-6 app-caption">
       <h3>First App</h3>
@@ -30,7 +30,7 @@
       <a href="#"><span class="icon-small fa fa-fw fa-github icon" aria-label="Github"></span></a>
     </div>
     <div class="col-md-6 col-sm-6">
-      <img src="css/images/app2.gif" alt="" class="responsive-img center-block">
+      <img src="css/images/portfolio/app2.gif" alt="" class="responsive-img center-block">
     </div>
   </div>
 </section>
@@ -38,7 +38,7 @@
 <section class="app-section purple-theme">
   <div class="container">
     <div class="col-md-6 col-sm-6">
-      <img src="css/images/app3.gif" alt="" class="responsive-img center-block">
+      <img src="css/images/portfolio/app3.gif" alt="" class="responsive-img center-block">
     </div>
     <div class="col-md-6 col-sm-6 app-caption">
       <h3>Third App</h3>
