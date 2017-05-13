@@ -10,8 +10,6 @@ class Mailer
 
   public function __construct()
   {
-    require_once __DIR__ . '../../vendor/autoload.php';
-
     Session::init();
     $headers = apache_request_headers();
     $token = Session::get('token');
