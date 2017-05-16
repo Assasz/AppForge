@@ -26,13 +26,10 @@ $(document).ready(function()
 
   $('#fullname-input').on('change', function()
   {
-    var s = $(this).val().replace(/(^\s*)|(\s*$)/gi,"");
-    s = s.replace(/[ ]{2,}/gi," ");
-    s = s.replace(/\n /,"\n");
-    var regex = /^[a-zA-ZąśćęńłóźżĄŚĆĘŃŁÓŹŻ\s]*$/;
+    var pattern1 = new RegExp(/^\S+\s\S+$/);
+    var pattern2 = new RegExp(/^[a-zA-ZąśćęńłóźżĄŚĆĘŃŁÓŹŻ\s]*$/);
 
-    if(s.split(" ").length!=2 || $(this).val().length>100
-     || !regex.test($(this).val()))
+    if($(this).val().length>100 || !pattern1.test($(this).val()) || !pattern2.test($(this).val()))
     {
       $(this).css("border-color", "#ff4444");
     }
@@ -44,7 +41,7 @@ $(document).ready(function()
 
   $('#email-input').on('change', function()
   {
-    var regex=/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    var regex = new RegExp(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/);
     if(!regex.test($(this).val()))
     {
       $(this).css("border-color", "#ff4444");
@@ -57,7 +54,7 @@ $(document).ready(function()
 
   $('#message').on('change', function()
   {
-    if($(this).val().length<1 || $(this).val().length>500)
+    if($(this).val().length<1)
     {
       $(this).css("border-color", "#ff4444");
     }
@@ -384,11 +381,19 @@ $('#send').click(function()
     success: function(msg)
     {
       $('.progress-bar').css('background-color', '#00C851')
-      $('.message-box').delay(400).fadeIn('slow').html(msg);
-      if(msg.indexOf('success') != -1)
+
+      if(msg.indexOf('Thank') != -1)
       {
         $('#send').prop("disabled",true);
+        $('.message-box').append('<div class="alert alert-success" role="alert"></div>');
       }
+      else
+      {
+        $('.message-box').append('<div class="alert alert-danger" role="alert"></div>');
+      }
+
+      $('.message-box').delay(400).fadeIn('slow');
+      $('.message-box div').html(msg);
     },
     error: function(error)
     {

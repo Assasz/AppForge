@@ -10,16 +10,15 @@ class Router
     self::$site = $_GET['site'] ?? 'home';
     $file = 'inc/'.self::$site.'.php';
 
-    if(file_exists($file))
+    if(self::$site == 'mailer')
+    {
+      require_once "inc/mailer.php";
+    }
+    else if(file_exists($file))
     {
       require_once 'inc/header.php';
       require_once $file;
       require_once 'inc/footer.php';
-    }
-    else if(self::$site == 'mailer')
-    {
-      $mailer = new Mailer();
-      $mailer->send();
     }
     else
     {

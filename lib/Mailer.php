@@ -3,103 +3,70 @@ namespace App;
 
 class Mailer
 {
-  private $name;
-  private $email;
-  private $msg;
-  private $attachment;
+  private $message;
+  private $transport;
+  private $config;
 
-  public function __construct()
+  public function __construct($config)
   {
-    Session::init();
-    $headers = apache_request_headers();
-    $token = Session::get('token');
-
-    if(!isset($_SERVER['HTTP_X_REQUESTED_WITH']) || $_SERVER['HTTP_X_REQUESTED_WITH'] != 'XMLHttpRequest' || $_SERVER['HTTP_REFERER']!='http://localhost/bootstrap/contact' || eval('return '.$headers['Token'].';')!=$token)
-    {
-      header('location: contact');
-      exit();
-    }
-
-    $this->name = $_POST['fullname'] ?? null;
-    $this->email = $_POST['email'] ?? null;
-    $this->msg = $_POST['message'] ?? null;
-    $this->attachment = $_FILES['attachment'] ?? null;
+    $this->config = $config;
   }
 
-  private function validate()
+  private function validate($data)
   {
     $regex = '/^[\p{Latin}\s]+$/u';
+    $cond1 = strlen($data['name'])>100;
+    $cond2 = !preg_match($regex, $data['name']);
+    $cond3 = str_word_count($data['name'])!=2;
+    $cond4 = !filter_var($data['email'], FILTER_VALIDATE_EMAIL);
+    $cond5 = strlen($data['message'])<1;
+    $cond6 = $data['attachment']['size']!=0;
+    $cond7 = $data['attachment']['size']>10485760;
+    $cond8 = $data['captcha'] != Session::get('captcha');
 
-    if(strlen($this->name)>100 || !preg_match($regex, $this->name) || str_word_count($this->name)!=2)
+    return ($cond1 || $cond2 || $cond3 || $cond4 || $cond5 || ($cond6 && $cond7) || $cond8) ? false : true;
+  }
+
+  public function setMessage($data)
+  {
+    if($this->validate($data))
     {
-      return false;
-    }
+      $this->message = \Swift_Message::newInstance()
+      ->setSubject($this->config['subject'])
+      ->setFrom(array($data['email'] => $data['name']))
+      ->setTo(array($this->config['email'] => $this->config['name']))
+      ->setBody($data['message']."<br><br>E-mail address: ".$data['email'], 'text/html');
 
-    if(!filter_var($this->email, FILTER_VALIDATE_EMAIL))
+      if($data['attachment']['size'] != 0)
+      {
+        $this->message->attach(\Swift_Attachment::fromPath($data['attachment']['tmp_name'])
+        ->setFilename($data['attachment']['name']));
+      }
+    }
+    else
     {
-      return false;
+      throw new \Exception("Make sure you provided everything correctly");
     }
+  }
 
-    if(strlen($this->msg)<1 || strlen($this->msg)>500)
-    {
-      return false;
-    }
-
-    if($this->attachment['size']!=0 && $this->attachment['size']>10485760)
-    {
-      return false;
-    }
-
-    return true;
+  public function setTransport()
+  {
+    $this->transport = \Swift_SmtpTransport::newInstance($this->config['server'], $this->config['port'], $this->config['auth'])
+    ->setUsername($this->config['username'])
+    ->setPassword($this->config['password']);
   }
 
   public function send()
   {
-    try
+    $mailer = \Swift_Mailer::newInstance($this->transport);
+
+    if($mailer->send($this->message))
     {
-      if($this->validate() && $_POST['captcha']==Session::get('captcha'))
-      {
-        if($this->attachment['size']!=0)
-        {
-          $message = \Swift_Message::newInstance()
-          ->setSubject('Message from client')
-          ->setFrom(array($this->email => $this->name))
-          ->setTo(array('pawel.assasz678@gmail.com' => 'Paweł Antosiak'))
-          ->setBody($this->msg."<br><br>E-mail address: ".$this->email, 'text/html')
-          ->attach(\Swift_Attachment::fromPath($this->attachment['tmp_name'])
-          ->setFilename($this->attachment['name']));
-        }
-        else
-        {
-          $message = \Swift_Message::newInstance()
-          ->setSubject('Message from client')
-          ->setFrom(array($this->email => $this->name))
-          ->setTo(array('pawel.assasz678@gmail.com' => 'Paweł Antosiak'))
-          ->setBody($this->msg."<br><br>E-mail address: ".$this->email, 'text/html');
-        }
-
-        $transport = \Swift_SmtpTransport::newInstance('smtp.gmail.com', 465, "ssl")
-        ->setUsername('pawel.assasz678@gmail.com')
-        ->setPassword('wrpumvvyhufiaygh');
-        $mailer = \Swift_Mailer::newInstance($transport);
-
-        if($mailer->send($message))
-        {
-          echo '<div class="alert alert-success" role="alert">Thank you for message! We\'ll contact you back soon!</div>';
-        }
-        else
-        {
-          throw new \Exception("Sending message failed");
-        }
-      }
-      else
-      {
-        throw new \Exception("Something went wrong! Make sure you entered correctly your name and surname, e-mail address and message");
-      }
+      echo 'Thank you for message!';
     }
-    catch (\Exception $error)
+    else
     {
-      echo '<div class="alert alert-danger" role="alert">'.$error->getMessage().'</div>';
+      throw new \Exception("Sending message failed");
     }
   }
 }
