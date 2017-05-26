@@ -1,10 +1,11 @@
 <?php
   use App\Session;
 
-  Session::init();
-  Session::set('token', md5(uniqid(rand(), true)));
+  $token = bin2hex(random_bytes(32));
   $num1=rand(1,9);
   $num2=rand(1,9);
+  Session::init();
+  Session::set('token', $token);
   Session::set('captcha', $num1+$num2);
 ?>
 
@@ -35,6 +36,7 @@
         <label for="captcha"><?= $num1.' + '.$num2.' =' ?></label>
         <input type="text" id="captcha" name="captcha" class="form-control" placeholder="?">
       </div>
+      <input type="hidden" id="token" name="token" value="<?= $token; ?>">
       <output>
         <div class="progress-bar"></div>
         <div class="message-box"></div>

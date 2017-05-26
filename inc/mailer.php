@@ -4,12 +4,11 @@
 
   Session::init();
   $token = Session::get('token');
-  $headers = apache_request_headers();
   $method = $_SERVER['HTTP_X_REQUESTED_WITH'];
   $referer = $_SERVER['HTTP_REFERER'];
   $url = 'http://localhost/bootstrap/contact';
 
-  if(!isset($method) || $method != 'XMLHttpRequest' || $referer != $url || eval('return '.$headers['Token'].';') != $token)
+  if(!isset($method) || $method != 'XMLHttpRequest' || $referer != $url || !hash_equals($token, $_POST['token']))
   {
     exit();
   }

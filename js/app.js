@@ -369,9 +369,8 @@ $('#send').click(function()
        }, false);
        return xhr;
      },
-    beforeSend: function(request)
+    beforeSend: function()
     {
-      request.setRequestHeader("Token", "$_SESSION['token']");
       $('.progress-bar').removeAttr('style');
     },
     complete: function()
@@ -381,6 +380,7 @@ $('#send').click(function()
     success: function(msg)
     {
       $('.progress-bar').css('background-color', '#00C851')
+      $('.message-box div').remove();
 
       if(msg.indexOf('Thank') != -1)
       {
