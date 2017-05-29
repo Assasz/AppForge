@@ -4,7 +4,6 @@ namespace App;
 class Mailer
 {
   private $message;
-  private $transport;
   private $config;
 
   public function __construct($config)
@@ -49,16 +48,13 @@ class Mailer
     }
   }
 
-  public function setTransport()
-  {
-    $this->transport = \Swift_SmtpTransport::newInstance($this->config['server'], $this->config['port'], $this->config['auth'])
-    ->setUsername($this->config['username'])
-    ->setPassword($this->config['password']);
-  }
-
   public function send()
   {
-    $mailer = \Swift_Mailer::newInstance($this->transport);
+    $transport = \Swift_SmtpTransport::newInstance($this->config['server'], $this->config['port'], $this->config['auth'])
+    ->setUsername($this->config['username'])
+    ->setPassword($this->config['password']);
+
+    $mailer = \Swift_Mailer::newInstance($transport);
 
     if($mailer->send($this->message))
     {

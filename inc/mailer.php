@@ -32,11 +32,10 @@
     'captcha' => $_POST['captcha']
   );
 
-  $mailer = new Mailer($config);
   try
   {
+    $mailer = new Mailer($config);
     $mailer->setMessage($data);
-    $mailer->setTransport();
     $mailer->send();
   }
   catch (\Exception $error)

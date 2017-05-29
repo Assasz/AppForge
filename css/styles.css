@@ -768,6 +768,19 @@ output {
   footer {
     height: 400px; }
 
+  footer .social-media {
+    font-size: 15px;
+    height: 40px;
+    width: 40px;
+    line-height: 40px; }
+
+  .blue-theme .chart-wrapper h3 {
+    font-size: 15px; }
+  .blue-theme .chart-wrapper .chart {
+    width: 40%;
+    font-size: 15px;
+    left: 30%; }
+
   .navbar-inverse .active a {
     -webkit-box-shadow: inset 10px 0px 0px 0px #00aeee !important;
     -moz-box-shadow: inset 10px 0px 0px 0px #00aeee !important;

@@ -63,19 +63,19 @@
         <p>Our team is a successful collaboration of collective creative minds and scientific approach towards future technologies. We apply our capabilities and insights to advances in farsighted IT opportunities. We obviously see a need for a different kind of technology, that’s why we create our products based on deep expertise and the spirit of invention. Being true-hearted to this spirit means keeping an eye looking toward the future.</p>
       </div>
       <div id="charts" class="row">
-        <div class="col-md-4 col-sm-4 chart-wrapper">
+        <div class="col-md-4 col-sm-4 col-xs-4 chart-wrapper">
           <div id="chart1" class="chart">
             <span>0</span>
           </div>
           <h3>Satisfied clients</h3>
         </div>
-        <div class="col-md-4 col-sm-4 chart-wrapper">
+        <div class="col-md-4 col-sm-4 col-xs-4 chart-wrapper">
           <div id="chart2" class="chart">
             <span>0</span>
           </div>
           <h3>Accomplished projects</h3>
         </div>
-        <div class="col-md-4 col-sm-4 chart-wrapper">
+        <div class="col-md-4 col-sm-4 col-xs-4 chart-wrapper">
           <div id="chart3" class="chart">
             <span>0</span>
           </div>

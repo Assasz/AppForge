@@ -1,6 +1,24 @@
 @media only screen and (max-width : 768px)
 {
   footer {height: 400px;}
+  footer .social-media
+  {
+    font-size: 15px;
+    height: 40px;
+    width: 40px;
+    line-height: 40px;
+  }
+
+  .blue-theme .chart-wrapper
+  {
+    h3 {font-size: 15px;}
+    .chart
+    {
+      width: 40%;
+      font-size: 15px;
+      left: 30%;
+    }
+  }
 
   .navbar-inverse .active a
   {

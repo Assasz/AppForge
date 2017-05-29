@@ -2,22 +2,16 @@
       <div class="container-footer">
         <div class="col-md-12">
           <div class="row">
-            <div class="text-center hidden-xs">
-              <a href="#"><i class="fa fa-3x fa-fw fa-facebook text-inverse social-media"></i></a>
-              <a href="#"><i class="fa fa-3x fa-fw fa-twitter text-inverse social-media"></i></a>
-              <a href="#"><i class="fa fa-3x fa-fw fa-google-plus text-inverse social-media"></i></a>
-              <a href="#"><i class="fa fa-3x fa-fw fa-github text-inverse social-media"></i></a>
-            </div>
-            <div class="text-center hidden-sm hidden-md hidden-lg">
-              <a href="#"><i class="fa fa-3x fa-fw fa-facebook text-inverse social-media"></i></a>
-              <a href="#"><i class="fa fa-3x fa-fw fa-twitter text-inverse social-media"></i></a><br>
-              <a href="#"><i class="fa fa-3x fa-fw fa-google-plus text-inverse social-media"></i></a>
-              <a href="#"><i class="fa fa-3x fa-fw fa-github text-inverse social-media"></i></a>
+            <div class="text-center">
+              <a href="#"><span class="fa fa-3x fa-fw fa-facebook text-inverse social-media" aria-label="Facebook"></span></a>
+              <a href="#"><span class="fa fa-3x fa-fw fa-twitter text-inverse social-media" aria-label="Twitter"></span></a>
+              <a href="#"><span class="fa fa-3x fa-fw fa-google-plus text-inverse social-media" aria-label="Google Plus"></span></a>
+              <a href="#"><span class="fa fa-3x fa-fw fa-github text-inverse social-media" aria-label="Github"></span></a>
             </div>
           </div>
           <div class="row">
             <p class="text-info text-center">
-              Lorem ipsum &copy <?= date('Y'); ?> All rights reserved
+              AppForge &copy <?= date('Y'); ?> All rights reserved
             </p>
           </div>
         </div>
