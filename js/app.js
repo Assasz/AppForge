@@ -26,10 +26,9 @@ $(document).ready(function()
 
   $('#fullname-input').on('change', function()
   {
-    var pattern1 = new RegExp(/^\S+\s\S+$/);
-    var pattern2 = new RegExp(/^[a-zA-ZąśćęńłóźżĄŚĆĘŃŁÓŹŻ\s]*$/);
+    var pattern = new RegExp(/[\^<,"@\/\{\}\(\)\0123456789\*\$%\?=>:\|;#]+/i);
 
-    if($(this).val().length>100 || !pattern1.test($(this).val()) || !pattern2.test($(this).val()))
+    if($(this).val().length>100 || pattern.test($(this).val()))
     {
       $(this).css("border-color", "#ff4444");
     }

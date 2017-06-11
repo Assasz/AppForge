@@ -1,5 +1,6 @@
 <?php
 namespace App;
+use App\Validator;
 
 class Mailer
 {
@@ -11,24 +12,14 @@ class Mailer
     $this->config = $config;
   }
 
-  private function validate($data)
+  private function isValid($data)
   {
-    $regex = '/^[\p{Latin}\s]+$/u';
-    $cond1 = strlen($data['name'])>100;
-    $cond2 = !preg_match($regex, $data['name']);
-    $cond3 = str_word_count($data['name'])!=2;
-    $cond4 = !filter_var($data['email'], FILTER_VALIDATE_EMAIL);
-    $cond5 = strlen($data['message'])<1;
-    $cond6 = $data['attachment']['size']!=0;
-    $cond7 = $data['attachment']['size']>10485760;
-    $cond8 = $data['captcha'] != Session::get('captcha');
-
-    return ($cond1 || $cond2 || $cond3 || $cond4 || $cond5 || ($cond6 && $cond7) || $cond8) ? false : true;
+    return (Validator::validateName($data['name']) && Validator::validateEmail($data['email']) && Validator::validateMessage($data['message']) && Validator::validateAttachment($data['attachment'])) ? true : false;
   }
 
   public function setMessage($data)
   {
-    if($this->validate($data))
+    if($this->isValid($data))
     {
       $this->message = \Swift_Message::newInstance()
       ->setSubject($this->config['subject'])

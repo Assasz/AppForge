@@ -8,13 +8,14 @@
   $referer = $_SERVER['HTTP_REFERER'];
   $url = 'http://localhost/bootstrap/contact';
 
-  if(!isset($method) || $method != 'XMLHttpRequest' || $referer != $url || !hash_equals($token, $_POST['token']))
+  if(!isset($method) || $method != 'XMLHttpRequest' || $referer != $url || !hash_equals($token, $_POST['token'] ?? ''))
   {
+    echo 'File is too big!';
     exit();
   }
 
   $config = array(
-    'email' => 'pawel.assasz678@gmail.com',
+    'email' => 'antosiak.pawel@outlook.com',
     'name' => 'Paweł Antosiak',
     'subject' => 'Someone want to contact you',
     'username' => 'pawel.assasz678@gmail.com',
