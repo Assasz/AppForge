@@ -1,5 +1,6 @@
 <?php
 namespace App;
+use App\Session;
 
 class Validator
 {
@@ -46,6 +47,19 @@ class Validator
   {
     $rules = array(
       $attachment['size'] <= 10485760
+    );
+
+    return self::validate($rules);
+  }
+
+  public static function validateAjaxRequest()
+  {
+    $rules = array(
+      hash_equals(Session::get('token'), $_POST['token']),
+      isset($_SERVER['HTTP_X_REQUESTED_WITH']),
+      isset($_SERVER['HTTP_REFERER']),
+      $_SERVER['HTTP_X_REQUESTED_WITH'] == 'XMLHttpRequest',
+      $_SERVER['HTTP_REFERER'] == 'http://localhost/bootstrap/contact'
     );
 
     return self::validate($rules);

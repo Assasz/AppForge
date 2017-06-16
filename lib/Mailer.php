@@ -14,7 +14,12 @@ class Mailer
 
   private function isValid($data)
   {
-    return (Validator::validateName($data['name']) && Validator::validateEmail($data['email']) && Validator::validateMessage($data['message']) && Validator::validateAttachment($data['attachment'])) ? true : false;
+    $rules = array(
+      Validator::validateName($data['name']), Validator::validateEmail($data['email']), Validator::validateMessage($data['message']), Validator::validateAttachment($data['attachment']),
+      Validator::validateCaptcha($data['captcha'])
+    );
+
+    return Validator::validate($rules);
   }
 
   public function setMessage($data)

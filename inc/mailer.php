@@ -1,14 +1,11 @@
 <?php
   use App\Mailer;
   use App\Session;
+  use App\Validator;
 
   Session::init();
-  $token = Session::get('token');
-  $method = $_SERVER['HTTP_X_REQUESTED_WITH'];
-  $referer = $_SERVER['HTTP_REFERER'];
-  $url = 'http://localhost/bootstrap/contact';
 
-  if(!isset($method) || $method != 'XMLHttpRequest' || $referer != $url || !hash_equals($token, $_POST['token'] ?? ''))
+  if(!Validator::validateAjaxRequest())
   {
     echo 'File is too big!';
     exit();
